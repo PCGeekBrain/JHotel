@@ -11,32 +11,43 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import server.settings_secrets as secrets
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '%92lc62w0sl*5xcr2d%!vwgt-bcr_-=vt6u7fh*sx)ecdi_09l'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    '192.168.1.6',
+    'localhost'
+]
+INTERNAL_IPS = [
+    '127.0.0.1'
+]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
+    'login',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
+    'social_django',
+    'server_common',
+    'homepage',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Debug toolbar
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -62,13 +75,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Social login processors
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
-
 WSGI_APPLICATION = 'server.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -99,22 +113,51 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Login process
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+# Social logins
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',     # Google
+    'django.contrib.auth.backends.ModelBackend',    # Django's built in login system
+)
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
+SOCIAL_AUTH_URL_NAMESPACE = 'social'    # The namespace for login options
+# Google keys:
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = secrets.GOOGLE_OAUTH2_KEY
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = secrets.GOOGLE_OAUTH2_SECRET
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'EST'
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
 STATIC_URL = '/static/'
+# Include the common static files (Vendors...)
+STATIC_ROOT = os.path.dirname(BASE_DIR) + '/public/static/'
+# Include media files
+MEDIA_ROOT = os.path.dirname(BASE_DIR) + '/public/media/'
+MEDIA_URL = '/media/'
+
+# JET SETTINGS:
+JET_THEMES = [
+    {'theme': 'default', 'color': '#47bac1', 'title': 'Default'},
+    {'theme': 'green', 'color': '#44b78b', 'title': 'Green'},
+    {'theme': 'light-green', 'color': '#2faa60', 'title': 'Light Green'},
+    { 'theme': 'light-violet', 'color': '#a464c4', 'title': 'Light Violet'},
+    { 'theme': 'light-blue', 'color': '#5EADDE', 'title': 'Light Blue'},
+    { 'theme': 'light-gray', 'color': '#222', 'title': 'Light Gray'}
+]
+JET_SIDE_MENU_COMPACT = True
+
+# SMTP SETTINGS
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

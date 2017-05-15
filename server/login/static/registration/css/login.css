@@ -1,0 +1,59 @@
+h2{
+    color: #fff;
+    font-size: 3em;
+    font-weight: bolder;
+}
+h2.brand{
+    font-family: 'Crimson Text', serif;
+    font-weight: normal;
+}
+.background{
+    background: #03A9F4;
+}
+.login-container{
+    display: table;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+}
+#login-content-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.input_list{
+    margin: 15px 0px;
+}
+.btn{
+    font-size: 1.3em;
+    padding: 12px 24px;
+}
+.login-social{
+    margin: 15px
+}
+.form-control{
+    margin: 0 auto;
+    height: 48px;
+    font-size: 1.4em;
+    max-width: 500px;
+}
+input#id_username{
+    border-radius: 5px 5px 0px 0px;
+}
+input#id_password{
+    border-radius: 0px 0px 5px 5px;
+}
+p, a, a:hover {
+    color: #fff;
+}
+.largep{
+    font-size: 1.8em;
+}
+.alert{
+    max-width: 500px;
+    margin: 10px auto;
+}
+.alert ul{
+    list-style: none;
+    padding: 0px;
+}

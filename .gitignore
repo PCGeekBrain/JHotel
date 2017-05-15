@@ -1,5 +1,5 @@
 django-env/
 *.pyc
 *.sqlite3
-*.secret.py
+*_secrets.py
 test.txt

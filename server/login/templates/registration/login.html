@@ -1,0 +1,27 @@
+{% extends "registration/base.html" %}
+{% load static %}
+
+{% block title %}JHotel | Login{% endblock title %}
+
+{% block content %}
+<form method="post" id="form_login">
+    <h2 class="brand"><b>J</b>Hotel</h2>
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    {% csrf_token %}
+    <div class="input_list">
+        <input type="text" name="username" class="form-control" placeholder="Username" autofocus maxlength="254" required id="id_username" />
+        <input type="password" name="password" class="form-control" placeholder="Password" required id="id_password" />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <div class="login-social">
+        <a href="{% url 'social:begin' 'google-oauth2' %}">
+            <img src="{% static 'vendor/google_icon/light_normal.png' %}" onMouseOver=src="{% static 'vendor/google_icon/light_pressed.png' %}" onMouseOut=src="{% static 'vendor/google_icon/light_normal.png' %}">
+        </a>
+    </div>
+    <p>
+        <a href="/password_reset/">Forgot Password?</a>
+    </p>
+</form>
+{% endblock %}

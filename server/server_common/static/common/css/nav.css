@@ -1,0 +1,25 @@
+.navbar, .navbar-default{
+    margin-bottom: 0px;
+    background: #03A9F4;
+    border-color: #03A9F4;
+}
+.navbar-text, .navbar-brand, .navbar-link, .navbar-nav>li>a{
+    color: #fff;
+}
+.navbar-brand{
+    font-family: 'Crimson Text', serif;
+}
+.navbar a:hover{
+    cursor: pointer;
+}
+.navbar-text{
+    padding-left: 15px;
+}
+.navbar-toggle:focus, .navbar-toggle, .navbar-toggle:hover{
+    background-color: #03A9F4;
+    color: #fff;
+}
+.nav>li>a:focus, .nav>li>a:hover, .navbar-brand:hover{
+    background-color: #0293f4;
+}
+@media (min-width: 768px){.navbar {border-radius: 0px}}
