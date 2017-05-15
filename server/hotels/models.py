@@ -72,6 +72,9 @@ class Hotel(models.Model):
         # Remove all whitespace and get the first 100 characters
         return self.name.strip().replace(' ', '')[:100]
 
+    def __str__(self):
+        return self.name
+
     # generate path on saveing
     def save(self, *args, **kwargs):
         if self.name and not self.path:

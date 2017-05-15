@@ -35,7 +35,21 @@
         {% block content %}{% endblock %}
     </div>
     <footer>
-        {% block footer %}{% endblock %}
+        <div class="fotter container-fluid">
+            <div class="col-md-4 center">
+                &copy; {% now 'Y' %} <a href="https://mendel.tech/">Mendel.tech</a><br> -> Open Source Projects <-
+            </div>
+            <div class="col-md-4 center">
+                Contact: <a href="mailto:me@mendel.tech">me@mendel.tech</a> <br>Please put bugs as issues on source code. Thank you
+            </div>
+            <div class="col-md-4 center">
+                <a href="https://github.com/PCGeekBrain/JHotel">Source Code</a><br>
+                <a href="https://github.com/PCGeekBrain/JHotel/issues">Report Bug</a>
+            </div>
+        </div>
     </footer>
+    {% block assets %}
+      
+    {% endblock assets %}
 {% endblock body %}
 
