@@ -1,9 +1,9 @@
-.navbar, .navbar-default{
+.navbar{
     margin-bottom: 0px;
     background: #03A9F4;
     border-color: #03A9F4;
 }
-.navbar-text, .navbar-brand, .navbar-link, .navbar-nav>li>a{
+.navbar-text, .navbar-brand, .navbar-link, .navbar-nav>li>a, .navbar a:hover {
     color: #fff;
 }
 .navbar-brand{

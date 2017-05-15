@@ -1,5 +1,7 @@
 django-env/
 *.pyc
+__ pycache __
 *.sqlite3
 *_secrets.py
 test.txt
+migrations

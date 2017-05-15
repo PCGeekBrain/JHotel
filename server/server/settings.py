@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'social_django',
     'server_common',
     'homepage',
+    'hotels',
+    'reservations'
 ]
 
 MIDDLEWARE = [
