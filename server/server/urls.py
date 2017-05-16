@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^ajax_select/', include(ajax_select_urls)),
+    url(r'^hotels/', include('hotels.urls'))
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,31 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block title %}JHotel | Hotels in {{city.name}}{% endblock %}
+
+{% block styles %}
+<link href="{% static 'homepage/css/home.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock styles %}
+
+{% block content %}
+<div class="container">
+    <h1>Hotels in {{city.name}} on <input type="text" id="selectedDate" value="{% now "SHORT_DATE_FORMAT" %}"/> </h1>
+    <div class="row">
+        {% for hotel in city.hotel_set.all %}<div class="col-md-3 hotel-card">
+            <p>
+                <h3>{{hotel.name}}.</h3>
+                <b>Jewish Reservations: <span id="reservations_{{hotel.id}}">{{hotel.totalReservationsToday}}</span>.</b><br>
+                <a href="/hotels/reservation/{{hotel.path}}"><button class="btn btn-default">Add Reservation</button></a>
+                <a href="/hotels/reservation/{{hotel.path}}"><button class="btn btn-default">View Hotel</button></a>
+            </p>
+        </div>{% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>$.ajaxSetup({data: {csrfmiddlewaretoken: '{{ csrf_token }}' },});</script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{% static "hotels/js/pick_hotel.js" %}" ></script>
+{% endblock scripts %}

@@ -42,7 +42,9 @@ class City(models.Model):
 
 
 class Hotel(models.Model):
-    path = models.CharField(max_length=100, unique=True, db_index=True, blank=True)
+    path = models.CharField(max_length=100, unique=True, db_index=True, blank=True, validators=[
+        RegexValidator(regex=r'\w+')
+    ])
     name = models.CharField(max_length=250)
     description = models.TextField()
 

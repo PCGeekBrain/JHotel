@@ -35,10 +35,10 @@
                 <div class="col center">
                     <h2>By City Name</h2>
                     <hr>
-                    <form action="/hotels/find_city" method="post">
+                    <form action="/hotels/citysearch/" method="post">
                         {% csrf_token %}
                         {% for field in city_form %}
-                        <input type="text" name="hotel_name" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" autofocus value="" autocomplete="off" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
+                        <input type="text" name="{{ field.html_name }}" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" autofocus value="" autocomplete="off" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
                         {% endfor %}
                         <input type="submit" class="btn btn-primary" value="Find Hotel" />
                     </form>
