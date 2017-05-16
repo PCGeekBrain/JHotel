@@ -54,12 +54,3 @@ hr.style11 {
 	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
     border: 0;
 }
-footer{
-    min-height: 3vh;
-    background: #03A9F4;
-    padding: 15px;
-    font-size: .8em;
-}
-footer a, footer, footer a:hover{
-    color: #fff
-}

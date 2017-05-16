@@ -48,16 +48,16 @@
                 <div class="col center">
                     <h2>By Hotel Name</h2>
                     <hr>
-                    <form action="/hotels/find_hotel" method="post">
+                    <form action="/hotels/hotelsearch/" method="post">
                         {% csrf_token %}
                         {% for field in hotel_form %}
-                        <input type="text" name="hotel_name" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" autofocus value="" autocomplete="off" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
+                        <input type="text" name="hotel_name" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" autofocus value="" autocomplete="on" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
                         {% endfor %}
                         <input type="submit" class="btn btn-primary" value="Find Hotel" />
                     </form>
                 </div>
             </div>
-            <a href="//google.com"><button class="btn btn-primary">Add Missing Hotel</button></a>
+            <a href="/hotels/add/"><button class="btn btn-primary">Add Missing Hotel</button></a>
         </div>
     </div>
 </div>

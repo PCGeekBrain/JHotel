@@ -1,0 +1,9 @@
+.search-container{
+    min-height: 90vh;
+}
+#selectedDate {
+    display: inline-block;
+    max-width: 80%;
+    border: none;
+    border-bottom: 2px solid #777;
+}

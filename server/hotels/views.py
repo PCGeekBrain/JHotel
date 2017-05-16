@@ -6,21 +6,23 @@ from .forms import CitySearchForm
 from datetime import datetime
 
 # Create your views here.
-def listCityHotelsHomepage(request):
-    if request.method != 'POST':
-        raise Http404
-    form = CitySearchForm(request.POST)
-    # check whether it's valid:
-    if form.is_valid():
-        # process the data in form.cleaned_data as required
-        print(form.cleaned_data)
-        city = get_object_or_404(City, name=form.cleaned_data['city_name'])
-        # redirect to a new URL:
-        return HttpResponseRedirect('/hotels/city/{}'.format(city.slug))
+def listCityHotelsSearch(request):
+    if request.method == 'POST':
+        form = CitySearchForm(request.POST)
+        if form.is_valid():
+            city = City.objects.filter(name__iexact=form.cleaned_data['city_name']).only('slug')
+            if city.count() == 1:
+                # redirect to a new URL:
+                city = city[0]
+                return HttpResponseRedirect('/hotels/city/{}'.format(city.slug))
+            else: # if there is more then one (or none at all)
+                cities = City.objects.filter(name__icontains=form.cleaned_data['city_name']) # inclued contains to allow for searching
+                query = form.cleaned_data['city_name'] # display the query that was asked to the user
+                return render(request, 'hotels/search_cities.html', {"cities": cities, "query": query})
+        else:
+            raise Http404 # the page request was invalid
     else:
-        print("else", form.is_valid())
-        print(request.POST)
-        raise Http404
+        return render(request, 'hotels/search_cities.html')
 
 def listCityHotels(request, slug):
     if request.method == 'POST':

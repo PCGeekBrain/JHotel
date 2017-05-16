@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     url(r'^city/(?P<slug>[-\w]+)', views.listCityHotels),
-    url(r'^citysearch/', views.listCityHotelsHomepage),
+    url(r'^citysearch/', views.listCityHotelsSearch),
 ]

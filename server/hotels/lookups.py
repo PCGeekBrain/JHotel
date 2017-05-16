@@ -6,8 +6,8 @@ class CityLookup(LookupChannel):
     model = City
     def get_query(self, q, request):
         return self.model.objects.filter(name__contains=q)
-    def format_item_display(self, item):
-        return u"%s" % item.name
+    def format_match(self, item):
+        return "{}, {}".format(item.name, item.country.name)
     def check_auth(self, request):
         pass
 
@@ -16,8 +16,6 @@ class CountryLookup(LookupChannel):
     model = Country
     def get_query(self, q, request):
         return self.model.objects.filter(name__contains=q)
-    def format_item_display(self, item):
-        return u"%s" % item.name
     def check_auth(self, request):
         pass
 
@@ -26,7 +24,7 @@ class HotelLookup(LookupChannel):
     model = Hotel
     def get_query(self, q, request):
         return self.model.objects.filter(name__contains=q)
-    def format_item_display(self, item):
-        return u"%s" % item.name
+    def format_match(self, item):
+        return "{}, {}".format(item.name, item.city.name)
     def check_auth(self, request):
         pass

@@ -1,0 +1,26 @@
+{% extends 'hotels/base.html' %}
+
+{% block content %}
+<div class="container search-container">
+    <div class="row">
+        <div class="col-md-12 center">
+            <h1>Search results for:<br><b>{{query}}</b></h1>
+        </div>
+    </div>
+    <div class="row results center">
+        {% if cities %}
+            {% for city in cities %}
+            <div class="col-md-4">
+                <a href="{{city.get_absolute_url}}">
+                    <h2>{{city}}</h2>
+                    <p>{% if city.state %}{{city.state}}, {% endif %}{{city.country.name}}</p>
+                </a>
+            </div>
+            {% endfor %}
+        {% else %}
+        <h1>No Cities found :-(</h1>
+        <h6><a href="mailto:me@mendel.tech">Report missing data</a></h6>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}}

@@ -23,7 +23,7 @@ class Country(models.Model):
 class City(models.Model):
     """Cities in the database"""
     slug = models.SlugField(max_length=15, unique=True)
-    name = models.CharField(max_length=250)
+    name = models.CharField(max_length=250, unique=True)
     country = models.ForeignKey(Country)
 
     """Optional fields"""
@@ -31,6 +31,9 @@ class City(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return "/hotels/city/{}".format(self.slug)
 
     class Meta:
         verbose_name = 'City'

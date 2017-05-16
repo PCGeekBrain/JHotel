@@ -1,4 +1,4 @@
-{% extends 'homepage/base.html' %}
+{% extends 'hotels/base.html' %}
 {% load static %}
 
 {% block title %}JHotel | Hotels in {{city.name}}{% endblock %}
@@ -10,7 +10,7 @@
 
 {% block content %}
 <div class="container">
-    <h1>Hotels in {{city.name}} on <input type="text" id="selectedDate" value="{% now "SHORT_DATE_FORMAT" %}"/> </h1>
+    <h1 class="center">Reservations in {{city.name}} on <input type="text" id="selectedDate" value="{% now "SHORT_DATE_FORMAT" %}"/> </h1>
     <div class="row">
         {% for hotel in city.hotel_set.all %}<div class="col-md-3 hotel-card">
             <p>

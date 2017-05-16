@@ -23,3 +23,15 @@
     background-color: #0293f4;
 }
 @media (min-width: 768px){.navbar {border-radius: 0px}}
+.center{
+    text-align: center;
+}
+footer{
+    min-height: 3vh;
+    background: #03A9F4;
+    padding: 15px;
+    font-size: .8em;
+}
+footer a, footer, footer a:hover{
+    color: #fff
+}

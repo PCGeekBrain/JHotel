@@ -1,55 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block body %}
-    <nav id="mainNav" class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="/"><b>J</b>Hotel</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    {% if user.first_name %}
-                    <li class="page-scroll">
-                        <p class="navbar-text">Signed in as <a href="#" class="navbar-link">{{user.first_name}}</a></p>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/logout/">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="page-scroll">
-                        <a href="/login/">Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
+{% block footer %}
+    <div class="fotter container-fluid">
+        <div class="col-md-4 center">
+            &copy; {% now 'Y' %} <a href="https://mendel.tech/">Mendel.tech</a><br> -> Open Source Projects <-
         </div>
-    </nav>
-    <div>
-        {% block content %}{% endblock %}
+        <div class="col-md-4 center">
+            Contact: <a href="mailto:me@mendel.tech">me@mendel.tech</a> <br>Please put bugs as issues on source code. Thank you
+        </div>
+        <div class="col-md-4 center">
+            <a href="https://github.com/PCGeekBrain/JHotel">Source Code</a><br>
+            <a href="https://github.com/PCGeekBrain/JHotel/issues">Report Bug</a>
+        </div>
     </div>
-    <footer>
-        <div class="fotter container-fluid">
-            <div class="col-md-4 center">
-                &copy; {% now 'Y' %} <a href="https://mendel.tech/">Mendel.tech</a><br> -> Open Source Projects <-
-            </div>
-            <div class="col-md-4 center">
-                Contact: <a href="mailto:me@mendel.tech">me@mendel.tech</a> <br>Please put bugs as issues on source code. Thank you
-            </div>
-            <div class="col-md-4 center">
-                <a href="https://github.com/PCGeekBrain/JHotel">Source Code</a><br>
-                <a href="https://github.com/PCGeekBrain/JHotel/issues">Report Bug</a>
-            </div>
-        </div>
-    </footer>
     {% block assets %}
-      
     {% endblock assets %}
-{% endblock body %}
+{% endblock footer %}
 

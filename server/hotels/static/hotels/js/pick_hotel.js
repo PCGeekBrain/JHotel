@@ -15,7 +15,7 @@ $( function() {
                 updateList(msg.list)
             },
             error: function() {
-                console.log("Failed")
+                console.log("Client/Server error: Failed get updated data")
             },
         });
     });
