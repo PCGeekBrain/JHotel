@@ -1,0 +1,37 @@
+{% extends 'hotels/base.html' %}
+{% load static %}
+
+{% block title %}JHotel | Hotels in {{city.name}}{% endblock %}
+
+{% block styles %}
+<link href="{% static 'homepage/css/home.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock styles %}
+
+{% block content %}
+<div class="container search-container">
+    <div class="center">
+        <h1 class="hotel-name">{{hotel.name}}</h1>
+        <h3>{{hotel.address}}, <br>{{hotel.city}} {{hotel.city.state}}, {{hotel.zip_code}}</h3>
+    </div>
+    <div class="row">
+        {% if user.is_anonymous %}
+        <div class="no-data">
+          <h3 class="center">Please log in to see reservations<i class="em em-pensive"></i>.
+        </div>
+        {% else %}
+        <div class="center">
+            <p class="reservations"><b>Jewish Reservations on <input type="text" id="selectedDate" class="inline-date" value="{% now "SHORT_DATE_FORMAT" %}"/><span id="reservations_{{hotel.id}}">: {{hotel.totalReservationsToday}}</span>.</b><br>
+            <a href="/reservation/{{hotel.path}}/add"><button class="btn btn-default">Add Reservation</button></a>
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>$.ajaxSetup({data: {csrfmiddlewaretoken: '{{ csrf_token }}' },});</script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{% static "hotels/js/pick_hotel.js" %}" ></script>
+{% endblock scripts %}

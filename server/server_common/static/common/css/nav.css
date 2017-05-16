@@ -35,3 +35,7 @@ footer{
 footer a, footer, footer a:hover{
     color: #fff
 }
+img.social_icon {
+    height: 20px;
+    border-radius: 50%;
+}

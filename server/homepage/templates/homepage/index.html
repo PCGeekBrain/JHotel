@@ -24,7 +24,7 @@
             <p><b>Step 1:</b> <a href="/login/">Login</a> so others at the hotel can contact you (you choose what they see)</p>
             <p><b>Step 2:</b> Find or add your hotel below</p>
             <p><b>Step 3:</b> Mark your reservation in the database and see who is there with you</p>
-            <p><b>Step 4:</b> Start and join Minyanim, Shiurim... during your stay</p>
+            <p><b>Step 4:</b> Get in touch with your fellow travelers and keep the Jewish flame alive!</p>
         </div>
     </div>
     <div class="row">
@@ -38,7 +38,7 @@
                     <form action="/hotels/citysearch/" method="post">
                         {% csrf_token %}
                         {% for field in city_form %}
-                        <input type="text" name="{{ field.html_name }}" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" autofocus value="" autocomplete="off" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
+                        <input type="text" name="{{ field.html_name }}" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" value="" autocomplete="off" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
                         {% endfor %}
                         <input type="submit" class="btn btn-primary" value="Find Hotel" />
                     </form>
@@ -51,7 +51,7 @@
                     <form action="/hotels/hotelsearch/" method="post">
                         {% csrf_token %}
                         {% for field in hotel_form %}
-                        <input type="text" name="hotel_name" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" autofocus value="" autocomplete="on" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
+                        <input type="text" name="hotel_name" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" value="" autocomplete="on" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
                         {% endfor %}
                         <input type="submit" class="btn btn-primary" value="Find Hotel" />
                     </form>

@@ -1,0 +1,100 @@
+1.	New York, NY	8,491,079
+2.	Los Angeles, CA	3,928,864
+3.	Chicago, IL	2,722,389
+4.	Brooklyn, NY	2,538,705
+5.	Queens, NY	2,277,251
+6.	Houston, TX	2,239,558
+7.	Manhattan, NY	1,621,897
+8.	Philadelphia, PA	1,560,297
+9.	Phoenix, AZ	1,537,058
+10.	San Antonio, TX	1,436,697
+11.	Bronx, NY	1,383,871
+12.	San Diego, CA	1,381,069
+13.	Dallas, TX	1,281,047
+14.	San Jose, CA	1,015,785
+15.	East San Gabriel Valley, CA	952,352
+16.	Austin, TX	912,791
+17.	Jacksonville, FL	853,382
+18.	San Francisco, CA	852,469
+19.	Indianapolis, IN	848,788
+20.	Columbus, OH	835,957
+21.	Fort Worth, TX	812,238
+22.	Charlotte, NC	809,958
+23.	Detroit, MI	680,250
+24.	El Paso, TX	679,036
+25.	Seattle, WA	668,342
+26.	Denver, CO	663,862
+27.	Washington, DC	658,893
+28.	Memphis, TN	656,861
+29.	Boston, MA	655,884
+30.	Nashville-Davidson, TN	644,014
+31.	Baltimore, MD	622,793
+32.	Metropolitan Government, TN	620,916
+33.	Oklahoma City, OK	620,602
+34.	Portland, OR	619,360
+35.	Las Vegas, NV	613,599
+36.	Milwaukee, WI	599,642
+37.	Albuquerque, NM	557,169
+38.	Tucson, AZ	527,972
+39.	Fresno, CA	515,986
+40.	East Seattle, WA	512,735
+41.	Central Contra Costa, CA	486,883
+42.	Sacramento, CA	485,199
+43.	Staten Island, NY	481,026
+44.	Long Beach, CA	473,577
+45.	Northeast Tarrant, TX	472,730
+46.	Kansas City, MO	470,800
+47.	Mesa, AZ	464,704
+48.	Northwest Harris, TX	464,301
+49.	Atlanta, GA	456,002
+50.	Northeast Jefferson, CO	451,811
+51.	Virginia Beach, VA	450,980
+52.	Omaha, NE	446,599
+53.	Colorado Springs, CO	445,830
+54.	Raleigh, NC	439,896
+55.	Miami, FL	430,332
+56.	Oakland, CA	413,775
+57.	Minneapolis, MN	407,207
+58.	Tulsa, OK	399,682
+59.	Cleveland, OH	389,521
+60.	Wichita, KS	388,413
+61.	New Orleans, LA	384,320
+62.	Arlington, TX	383,204
+63.	North Coast, CA	376,527
+64.	Honolulu, HI	374,701
+65.	Bakersfield, CA	368,759
+66.	Tampa, FL	358,699
+67.	Aurora, CO	353,108
+68.	Urban Honolulu, HI	350,399
+69.	Anaheim, CA	346,997
+70.	Kendale Lakes-Lindgren Acres, FL	341,815
+71.	Santa Ana, CA	334,909
+72.	South Aurora, CO	329,151
+73.	Upper San Gabriel Valley, CA	327,431
+74.	Southwest San Gabriel Valley, CA	326,450
+75.	Corpus Christi, TX	320,434
+76.	Riverside, CA	319,504
+77.	St. Louis, MO	317,419
+78.	Lexington-Fayette, KY	310,797
+79.	West Adams, CO	310,409
+80.	Pittsburgh, PA	305,412
+81.	Stockton, CA	302,389
+82.	Anchorage, AK	301,010
+83.	South Coast, CA	298,389
+84.	Cincinnati, OH	298,165
+85.	St. Paul, MN	297,640
+86.	Southeast Montgomery, TX	288,750
+87.	Fayette, KY	286,518
+88.	Greensboro, NC	282,586
+89.	Toledo, OH	281,031
+90.	Newark, NJ	280,579
+91.	Ewa, HI	279,683
+92.	Plano, TX	278,480
+93.	Henderson, NV	277,440
+94.	Lincoln, NE	272,996
+95.	Louisville, KY	262,764
+96.	Orlando, FL	262,372
+97.	Jersey City, NJ	262,146
+98.	Chula Vista, CA	260,988
+99.	Buffalo, NY	258,703
+100.	Fort Wayne, IN	258,522

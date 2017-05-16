@@ -8,3 +8,7 @@ class CitySearchForm(forms.Form):
 
 class HotelSearchForm(forms.Form):
     hotel_name =  make_ajax_field(Hotel, 'name', 'hotel')
+
+class HotelAddForm(forms.Form):
+    pass
+    

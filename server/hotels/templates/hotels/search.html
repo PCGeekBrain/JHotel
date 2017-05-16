@@ -1,0 +1,50 @@
+{% extends 'hotels/base.html' %}
+
+{% block content %}
+<div class="container search-container">
+    <div class="row">
+        <div class="col-md-12 center">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="input-group">
+                    <input type="text" name="{{ field.html_name }}" id="{{ field.id_for_label }}" class="form-control" placeholder="{{ field.label }}" value="{{query}}" autocomplete="off" data-ajax-select="autocomplete" data-plugin-options="{&quot;source&quot;: &quot;/ajax_select/ajax_lookup/{{ field.field.channel }}&quot;, &quot;html&quot;: true}"  required maxlength="{{ field.field.max_length }}"/>
+                    <span class="input-group-btn">
+                        <input type="submit" class="btn btn-primary" value="Find Hotel" />
+                    </span>
+                </div>
+                {% endfor %}
+            </form>
+            {% if models %}<p>{{models.count}} results</p>{% endif %}
+        </div>
+    </div>
+    <div class="row results center">
+        {% if models %}
+            {% for model in models %}
+            <div class="col-md-4">
+                <a href="{{model.get_absolute_url}}">
+                    <h2>{{model.name}}</h2>
+                    {% if model.city %}
+                    <p>{{model.city.name}}, {% if model.city.state %}{{model.city.state}}{% endif %}</p>
+                    {% else %}
+                    <p>{% if model.state %}{{model.state}}, {% endif %}{{model.country.name}}</p>
+                    {% endif %}
+                </a>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div class="no-data">
+            <h1> Nothing here 😞</h1>
+            <br>
+            <a href="/hotels/add"><button class="btn btn-primary">Add Data</button></a><br>
+            <br>
+            <small><a href="mailto:me@mendel.tech">Report missing data</a></small>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}}
+
+{% block assets %}
+{{ form.media }}
+{% endblock assets %}

@@ -9,17 +9,27 @@
 {% endblock styles %}
 
 {% block content %}
-<div class="container">
+<div class="container search-container">
     <h1 class="center">Reservations in {{city.name}} on <input type="text" id="selectedDate" value="{% now "SHORT_DATE_FORMAT" %}"/> </h1>
     <div class="row">
-        {% for hotel in city.hotel_set.all %}<div class="col-md-3 hotel-card">
+        {% for hotel in hotel_set.all %}<div class="col-md-3 hotel-card">
             <p>
                 <h3>{{hotel.name}}.</h3>
                 <b>Jewish Reservations: <span id="reservations_{{hotel.id}}">{{hotel.totalReservationsToday}}</span>.</b><br>
                 <a href="/hotels/reservation/{{hotel.path}}"><button class="btn btn-default">Add Reservation</button></a>
-                <a href="/hotels/reservation/{{hotel.path}}"><button class="btn btn-default">View Hotel</button></a>
+                <a href="{{hotel.get_absolute_url}}"><button class="btn btn-default">View Hotel</button></a>
             </p>
         </div>{% endfor %}
+        {% if not hotel_set.count %}
+        <div class="no-data">
+          <h3 class="center">Seems that we have no hotels in {{city.name}} 😞</i>.
+          {% if not user.is_anonymous %}
+          <br>Feel free to <a href="/hotels/add/">add one</a></h3>
+          {% else %}
+          <br>Please <a href="/login/?next={{request.path}}">login</a> to add one</h3>
+          {% endif %}
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

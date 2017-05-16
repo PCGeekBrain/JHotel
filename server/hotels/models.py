@@ -2,12 +2,13 @@ from django.db import models
 from django.core.validators import RegexValidator
 from .libs import states
 import datetime
+import uuid
 
 # Create your models here.
 class Country(models.Model):
     """Data on the individual contry for its page"""
     name = models.CharField(max_length=100)
-    code = models.CharField(max_length=2, help_text="The two letter contry code. (also path)")
+    code = models.CharField(max_length=2, help_text="The two letter contry code. (also path)", unique=True)
     # Optional fields
     description = models.TextField(help_text='short description', blank=True, null=True)
     # image = models.ImageField()
@@ -45,12 +46,10 @@ class City(models.Model):
 
 
 class Hotel(models.Model):
-    path = models.CharField(max_length=100, unique=True, db_index=True, blank=True, validators=[
-        RegexValidator(regex=r'\w+')
-    ])
+    path = models.UUIDField(default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=250)
-    description = models.TextField()
-
+    description = models.TextField(blank=True, null=True)
+    verified = models.BooleanField(default=False)
     """address"""
     address = models.CharField(max_length=250)
     city = models.ForeignKey(City)
@@ -73,18 +72,11 @@ class Hotel(models.Model):
     """
     email_address = models.EmailField(blank=True, null=True)
 
-    def generate_path(self):
-        # Remove all whitespace and get the first 100 characters
-        return self.name.strip().replace(' ', '')[:100]
-
     def __str__(self):
         return self.name
 
-    # generate path on saveing
-    def save(self, *args, **kwargs):
-        if self.name and not self.path:
-            self.path = self.generate_path()
-        super(Hotel, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return "/hotels/hotel/{}".format(self.path)
 
     # get the reservations for a spacifc date
     def totalReservations(self, date):
